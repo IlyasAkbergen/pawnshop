@@ -1,0 +1,27 @@
+    body{
+      background-color: #edeef0;
+      font-family: 'Roboto', sans-serif;
+    }
+          .row{
+        margin-top:40px;
+        padding: 0 10px;
+    }
+    .clickable{
+        cursor: pointer;   
+    }
+
+    .panel-heading div {
+      margin-top: -18px;
+      font-size: 15px;
+    }
+    .panel-heading div span{
+      margin-left:5px;
+    }
+    .panel-body{
+      display: none;
+    }
+    .panel-primary>.panel-heading {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}

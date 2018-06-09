@@ -40,6 +40,7 @@
                   <button>Добор</button>
              
                 <button>Частичный выкуп</button>
+                <button>Частичный выкуп2</button>
                     <a href="/vykup/1"> <button >Выкуп</button></a>
                   <button>Вывод из залога</button>
                 </td>

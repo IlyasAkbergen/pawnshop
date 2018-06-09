@@ -32,3 +32,8 @@ Route::get('/klient/{id}','UsersController@klient');
 
 Route::get('/vykup/{id}','UsersController@vykup');
 
+Route::get('/addOperationForm', function(){
+	return view('addOperationForm');
+})->name('addOperationForm');
+
+Route::post('/addOperation', 'OperationsController@addOperation')->name('addOperation');

@@ -35,7 +35,7 @@
 
 </head>
 <body>
-   <div class="container" id="header">
+   <div class="container" id="header" style="margin-bottom: -500px !important">
         <div class="col-sm-6">
             <p><h1 style="color:#186999; font-weight:bold; font-family:'Trebuchet MS",Arial,Helvetica,sans-serif'; ">Внутренняя система ломбарда</h1></p>
         </div>
@@ -103,7 +103,7 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
-        <li><a href="#"><b>+Добавить операцию</b></a></li>
+        <li><a href="{{route('addOperationForm')}}"><b>+Добавить операцию</b></a></li>
       </ul>
       <form class="navbar-form navbar-left" style="padding-left: 20%;">
         <div class="form-group">

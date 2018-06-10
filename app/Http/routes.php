@@ -36,4 +36,14 @@ Route::get('/addOperationForm', function(){
 	return view('addOperationForm');
 })->name('addOperationForm');
 
+
+// Route::get('/cash', function(){
+// 	return view('cash');
+// })->name('cashLayout');
+
+Route::get('/cash', 'CashController@show')->name('cashLayout');
+
 Route::post('/addOperation', 'OperationsController@addOperation')->name('addOperation');
+
+Route::get('/closeSmena', 'OperationsController@closeSmena')->name('closeSmena');
+Route::get('/openSmena', 'OperationsController@openSmena')->name('openSmena');

@@ -17,7 +17,9 @@ class CreateOperationsTable extends Migration
             $table->integer('smena_id');
             $table->integer('user_id');
             $table->integer('type');
-            $table->mediumInteger('sum');
+            $table->integer('sum');
+            $table->integer('before');
+            $table->integer('after');
             $table->text('description')->nullable();
             $table->timestamps();
         });

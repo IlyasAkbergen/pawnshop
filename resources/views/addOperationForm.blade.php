@@ -33,7 +33,7 @@
                     <div class="field_label row_header "></div>
 
                 	<div class="field_input valid">
-                        <input type="checkbox" name="incash" value="on" id="incash">
+                        <input type="checkbox" name="incash" value="incash" id="incash">
                         <label id="incash-description" for="incash"></label>
                        <!--  <script type="text/javascript">
                             $("#raskhod_incash_sel").change(function() {
@@ -64,7 +64,7 @@
                                 $("#incash").closest(".form_row").show();
                                 $("#incash-description").show();
 
-                                if($(this).find(":selected").val() == 50) {
+                                if($(this).find(":selected").val() == 1) {
                                     $("#incash").attr("checked","checked");
                                     $("#incash-description").text("Записать в затраты");
                                 } else {

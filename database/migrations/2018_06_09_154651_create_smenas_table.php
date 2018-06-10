@@ -18,6 +18,8 @@ class CreateSmenasTable extends Migration
             $table->dateTime('ended_at')->nullable();
             $table->integer('user_id');
             $table->integer('status')->default('1');
+            $table->integer('before_cash');
+            $table->integer('after_cash')->nullable();
             $table->timestamps();
         });
     }

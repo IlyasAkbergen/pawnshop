@@ -20,7 +20,7 @@ class UsersController extends Controller
     }
     public function workplace()
     {   
-        $klients =DB::table('klients')->get();
+        $klients = DB::table('klients')->get();
 
          
         return view('content',compact('klients'));

@@ -18,21 +18,40 @@ class CashController extends Controller
 
     	$plus = 0;
     	$minus = 0;
+    	$dohod = 0;
+    	$zatraty = 0;
     	$bank = Lombard::find(Auth::user()->lombard_id)->bank;
     	if($currentSmena != null){
-	    	$operations = Operation::where('smena_id', $currentSmena->id)->get();
+	    	$operations = Operation::where('smena_id', $currentSmena->id)->get(); // рассмотреть вариант без этого массива, мб поражняковый
 
 	    	foreach ($operations as $operation) {
 	    		if($operation->type == 0 || $operation->type == 2){
 	    			$plus = $plus + $operation->sum;
+	    			if($operation->type == 2){
+	    				$dohod = $dohod + $operation->sum;
+	    			}
 	    		}else{
 	    			$minus = $minus + $operation->sum;
+	    			if($operation->type == 3){
+	    				$zatraty = $zatraty + $operation->sum;
+	    			}
 	    		}
 	    	}
+
+			$ins = Operation::where('smena_id', $currentSmena->id)->where(function($q) {
+															          $q->where('type', 0)
+															            ->orWhere('type', 2);
+															      })->get();
+    		
+			$outs = Operation::where('smena_id', $currentSmena->id)->where(function($q) {
+															          $q->where('type', 1)
+															            ->orWhere('type', 3);
+															      })->get();
     	}else{
     		$operations = "empty";
     	}
 
-    	return view('cash', compact('smenas', 'operations', 'plus', 'minus', 'bank', 'currentSmena'));
+
+    	return view('cash', compact('smenas', 'operations', 'plus', 'minus', 'bank', 'currentSmena', 'ins', 'outs', 'dohod', 'zatraty'));
     }
 }

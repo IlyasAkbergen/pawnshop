@@ -39,7 +39,7 @@ class OperationsController extends Controller
 		$operation->after = $lombard->bank;
 		$operation->save();
 
-		return redirect('/workplace');
+		return redirect('/cash');
     }      
 
     public function closeSmena(){
@@ -47,8 +47,9 @@ class OperationsController extends Controller
     	$smena = Smena::where('user_id', Auth::user()->id)->where('status', 1)->first();
     	$smena->ended_at = Carbon::now();
     	$smena->status = 0;
+    	$smena->after_cash = Lombard::where('user_id', Auth::user()->lombard_id)->first()->bank;
     	$smena->save();
-    	return redirect('/workplace');
+    	return redirect('/cash');
 
     }
 

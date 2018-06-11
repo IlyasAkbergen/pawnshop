@@ -99,316 +99,256 @@
          </div>
       </div>
    </div>
+
+   <!-- cash div -->
+   
    <div>
-      <div id="cash_div" class="cf" style="position: relative;">
-         <div class="clear_it">
-            <h2 style="text-align: center; font-weight:normal; font-size:23px;">Кассовый отчет</h2>
-            <h3 style="text-align: center; font-size:18px; font-weight:normal;">Qwert (Адрес не указан)</h3>
-            <div>Сформирован: 02:38 / 11.06.2018 (Сотрудников С. С.)</div>
-            <div>Открытие смены: 18:01 / 08.06.2018 (Ильяс . .)</div>
-            <div>В кассе: 47 505 тг.</div>
-            <div>В начале смены: 0 тг.</div>
-         </div>
-         <div class="cash_block_in">
-            <div class="cash_text_in">Приход {{$plus}} тг.</div>
-            <div id="table_result">
-               <div class="JCLRgrips" style="width: 579px;">
-                  <div class="JCLRgrip" style="left: 112px; height: 30px;">
-                     <div class="JColResizer" style="cursor:col-resize"></div>
-                  </div>
-                  <div class="JCLRgrip" style="left: 228px; height: 30px;">
-                     <div class="JColResizer" style="cursor:col-resize"></div>
-                  </div>
-                  <div class="JCLRgrip" style="left: 344px; height: 30px;">
-                     <div class="JColResizer" style="cursor:col-resize"></div>
-                  </div>
-                  <div class="JCLRgrip" style="left: 459px; height: 30px;">
-                     <div class="JColResizer" style="cursor:col-resize"></div>
-                  </div>
-                  <div class="JCLRLastGrip" style="left: 580px; height: 30px;"></div>
-               </div>
-               <table class="MainTable  squashed-rows squashed-headers JColResizer" id="operations_block_left_arr" width="100%">
-                  <thead>
-                     <tr>
-                        <th title="Время" style="width: 19%;">
-                           <div class="txt_node dash_none"><span>Время</span></div>
-                        </th>
-                        <th title="Действие" style="width: 20%;">
-                           <div class="txt_node dash_none"><span>Действие</span></div>
-                        </th>
-                        <th title="Описание" style="width: 20%;">
-                           <div class="txt_node dash_none"><span>Описание</span></div>
-                        </th>
-                        <th title="Сумма" style="width: 20%;">
-                           <div class="txt_node dash_none"><span>Сумма</span></div>
-                        </th>
-                        <th title="Доход" style="width: 21%;">
-                           <div class="txt_node dash_none"><span>Доход</span></div>
-                        </th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr class="operation_row">
-                        <td class="column_date">
-                           <div class="txt_node"><span><span class="cash_date_text">18:01 08.06</span></span></div>
-                        </td>
-                        <td class="column_type_op">
-                           <div class="txt_node"><span>перезалог</span></div>
-                        </td>
-                        <td class="column_good_name">
-                           <div class="txt_node"><span><a href="/clients/client/?client_id=1&amp;pawn_anchor_id=1" title="Nokia 6700 (AA000002)">Nokia 6700 (AA000002)</a></span></div>
-                        </td>
-                        <td class="column_price">
-                           <div class="txt_node table_number_format"><span>50</span></div>
-                        </td>
-                        <td class="column_profit">
-                           <div class="txt_node table_number_format"><span>50</span></div>
-                        </td>
-                     </tr>
-                     <tr class="operation_row">
-                        <td class="column_date">
-                           <div class="txt_node"><span><span class="cash_date_text">18:01 08.06</span></span></div>
-                        </td>
-                        <td class="column_type_op">
-                           <div class="txt_node"><span>к/о приход</span></div>
-                        </td>
-                        <td class="column_good_name">
-                           <div class="txt_node"><span>Пополнение кассы</span></div>
-                        </td>
-                        <td class="column_price">
-                           <div class="txt_node table_number_format"><span>50 000</span></div>
-                        </td>
-                        <td class="column_profit">
-                           <div class="txt_node table_number_format"><span>0</span></div>
-                        </td>
-                     </tr>
-                     <tr class="operation_row">
-                        <td class="column_date">
-                           <div class="txt_node"><span><span class="cash_date_text">18:01 08.06</span></span></div>
-                        </td>
-                        <td class="column_type_op">
-                           <div class="txt_node"><span>продажа аксессуаров</span></div>
-                        </td>
-                        <td class="column_good_name">
-                           <div class="txt_node"><span><a href="/catalog/accessories/stranica_accesories/?id=69656" title="Зарядные устройства/Samsung/D800/D820 AMT">Зарядные устройства/Samsung/D800/D820 AMT</a><span class="operations_goods_counter"> (3 шт.)</span> </span></div>
-                        </td>
-                        <td class="column_price">
-                           <div class="txt_node table_number_format"><span>300</span></div>
-                        </td>
-                        <td class="column_profit">
-                           <div class="txt_node table_number_format"><span>231</span></div>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
-            <div class="print_cash_text_in">Приход 2 {{$plus}} тг.</div>
-         </div>
-         <div class="cash_block_out">
-            <div class="cash_text_out">Расход {{$minus}} тг.</div>
-            <div id="table_result">
-               <div class="JCLRgrips" style="width: 579px;">
-                  <div class="JCLRgrip" style="left: 140px; height: 30px;">
-                     <div class="JColResizer" style="cursor:col-resize"></div>
-                  </div>
-                  <div class="JCLRgrip" style="left: 285px; height: 30px;">
-                     <div class="JColResizer" style="cursor:col-resize"></div>
-                  </div>
-                  <div class="JCLRgrip" style="left: 430px; height: 30px;">
-                     <div class="JColResizer" style="cursor:col-resize"></div>
-                  </div>
-                  <div class="JCLRLastGrip" style="left: 580px; height: 30px;"></div>
-               </div>
-               <table class="MainTable  squashed-rows squashed-headers JColResizer" id="operations_block_right_arr" width="100%">
-                  <thead>
-                     <tr>
-                        <th title="Время" style="width: 24%;">
-                           <div class="txt_node dash_none"><span>Время</span></div>
-                        </th>
-                        <th title="Действие" style="width: 25%;">
-                           <div class="txt_node dash_none"><span>Действие</span></div>
-                        </th>
-                        <th title="Описание" style="width: 25%;">
-                           <div class="txt_node dash_none"><span>Описание</span></div>
-                        </th>
-                        <th title="Сумма" style="width: 26%;">
-                           <div class="txt_node dash_none"><span>Сумма</span></div>
-                        </th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr class="operation_row">
-                        <td class="column_date">
-                           <div class="txt_node"><span><span class="cash_date_text">18:01 08.06</span></span></div>
-                        </td>
-                        <td class="column_type_op">
-                           <div class="txt_node"><span>скупка</span></div>
-                        </td>
-                        <td class="column_good_name">
-                           <div class="txt_node"><span><a href="/clients/client/?client_id=1&amp;anchor_id=1" title="Samsung D880">Samsung D880</a></span></div>
-                        </td>
-                        <td class="column_price">
-                           <div class="txt_node table_number_format"><span>1 500</span></div>
-                        </td>
-                     </tr>
-                     <tr class="operation_row">
-                        <td class="column_date">
-                           <div class="txt_node"><span><span class="cash_date_text">18:01 08.06</span></span></div>
-                        </td>
-                        <td class="column_type_op">
-                           <div class="txt_node"><span>покупка аксессуаров</span></div>
-                        </td>
-                        <td class="column_good_name">
-                           <div class="txt_node"><span><a href="/catalog/accessories/stranica_accesories/?id=69656" title="Зарядные устройства/Samsung/D800/D820 AMT">Зарядные устройства/Samsung/D800/D820 AMT</a><span class="operations_goods_counter"> (15 шт.)</span> </span></div>
-                        </td>
-                        <td class="column_price">
-                           <div class="txt_node table_number_format"><span>345</span></div>
-                        </td>
-                     </tr>
-                     <tr class="operation_row">
-                        <td class="column_date">
-                           <div class="txt_node"><span><span class="cash_date_text">18:01 08.06</span></span></div>
-                        </td>
-                        <td class="column_type_op">
-                           <div class="txt_node"><span>залог</span></div>
-                        </td>
-                        <td class="column_good_name">
-                           <div class="txt_node"><span><a href="/clients/client/?client_id=1&amp;pawn_anchor_id=1" title="Nokia 6700 (AA000001)">Nokia 6700 (AA000001)</a></span></div>
-                        </td>
-                        <td class="column_price">
-                           <div class="txt_node table_number_format"><span>1 000</span></div>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
-            <div class="print_cash_text_out">Расход {{$minus}} тг.</div>
-         </div>
-         <div class="print_cash_info" style="display: none;">
-            <div id="crazy-shit0" style="clear:both; height:20px; padding-top:30px;"></div>
-            <table style="font-size: 17px;">
-               <tbody>
+   <div id="cash_div" class="cf" style="position: relative;">
+      <div class="clear_it">
+         <h2 style="text-align: center; font-weight:normal; font-size:23px;">Кассовый отчет</h2>
+         <h3 style="text-align: center; font-size:18px; font-weight:normal;">Qwert (Адрес не указан)</h3>
+         <div>Сформирован: 16:38 / 11.06.2018 (Сотрудников С. С.)</div>
+         <div>Открытие смены: 16:37 / 11.06.2018 (Сотрудников С. С.)</div>
+         <div>В кассе: 82 505 тг.</div>
+         <div>В начале смены: 47 505 тг.</div>
+      </div>
+      <div class="cash_block_in">
+         <div class="cash_text_in">Приход {{$plus}} тг.</div>
+         <div id="table_result">
+            <table class="MainTable  squashed-rows squashed-headers JColResizer" id="operations_block_left_arr" width="100%">
+               <thead>
                   <tr>
-                     <td>
-                        <div><b style="font-size: 20px;">В кассе: 47 505 тг.</b></div>
-                        <div>В начале смены: 0 тг.</div>
-                     </td>
-                     <td>
-                        <div>Доход: 281 тг.</div>
-                        <div>Прибыль: <b style="font-size: 19px;">281</b> тг.</div>
+                     <th title="Время" style="width: 19%;">
+                        <div class="txt_node dash_none"><span>Время</span></div>
+                     </th>
+                     <th title="Действие" style="width: 20%;">
+                        <div class="txt_node dash_none"><span>Действие</span></div>
+                     </th>
+                     <th title="Описание" style="width: 20%;">
+                        <div class="txt_node dash_none"><span>Описание</span></div>
+                     </th>
+                     <th title="Сумма" style="width: 20%;">
+                        <div class="txt_node dash_none"><span>Сумма</span></div>
+                     </th>
+                     <th title="Доход" style="width: 21%;">
+                        <div class="txt_node dash_none"><span>Доход</span></div>
+                     </th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <?php 
+                     $types = array("приход","расход","приход (доход)","расход (затраты)");
+                   ?>
+                  @if(count($ins) == 0)
+                  <tr style="text-align:center">
+                     <td colspan="4">
+                        <div>Данные отсутствуют.</div>
                      </td>
                   </tr>
+                  @else
+                     @foreach($ins as $in)
+                     <tr class="operation_row">
+                        <td class="column_date">
+                           <div class="txt_node"><span><span class="cash_date_text">{{$in->created_at}}</span></span></div>
+                        </td>
+                        <td class="column_type_op">
+                           <div class="txt_node"><span>{{ $types[$in->type] }}</span></div>
+                        </td>
+                        <td class="column_good_name">
+                           <div class="txt_node"><span>{{ $in->description }}</span></div>
+                        </td>
+                        <td class="column_price">
+                           <div class="txt_node table_number_format"><span>{{ $in->sum }}</span></div>
+                        </td>
+                        <td class="column_profit">
+                           <div class="txt_node table_number_format"><span>{{ $in->type === 2 ? $in->sum : "0" }}</span></div>
+                        </td>
+                     </tr>
+                     @endforeach
+                  @endif
                </tbody>
             </table>
-            <div style="clear:both; height:20px; padding-top:20px;"></div>
          </div>
-         <div class="clear_it">
-            <div>
-               <table style="width: 850px; font-weight: bold; table-layout: fixed; margin-bottom: 70px;">
-                  <tbody>
-                     <tr>
-                        <td>Фактическая сумма:</td>
-                        <td style="border-bottom: 1px black solid;"></td>
-                        <td style="width: 60px;">тг.</td>
-                        <td style="border-bottom: 1px black solid;"></td>
-                        <td>тиын</td>
-                     </tr>
-                     <tr style="height: 30px;">
-                        <td colspan="5"></td>
-                     </tr>
-                     <tr>
-                        <td>Излишки:</td>
-                        <td style="border-bottom: 1px black solid;"></td>
-                        <td style="width: 60px;">тг.</td>
-                        <td style="border-bottom: 1px black solid;"></td>
-                        <td>тиын</td>
-                     </tr>
-                     <tr style="height: 30px;">
-                        <td colspan="5"></td>
-                     </tr>
-                     <tr>
-                        <td>Недостача:</td>
-                        <td style="border-bottom: 1px black solid;"></td>
-                        <td style="width: 60px;">тг.</td>
-                        <td style="border-bottom: 1px black solid;"></td>
-                        <td>тиын</td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
-            <div>
-               <table style="width: 500px; font-weight: bold; table-layout: fixed;">
-                  <tbody>
-                     <tr>
-                        <td>Сдал смену:</td>
-                        <td style="border-bottom: 1px black solid;"></td>
-                        <td style="width: 35px;"></td>
-                        <td style="border-bottom: 1px black solid;"></td>
-                     </tr>
-                     <tr style="font-size: 8px; text-align: center;">
-                        <td></td>
-                        <td>(ФИО сотрудника)</td>
-                        <td style="width: 35px;"></td>
-                        <td>(подпись)</td>
-                     </tr>
-                     <tr style="height: 30px;">
-                        <td colspan="4"></td>
-                     </tr>
-                     <tr>
-                        <td>Принял смену:</td>
-                        <td style="border-bottom: 1px black solid;"></td>
-                        <td style="width: 35px;"></td>
-                        <td style="border-bottom: 1px black solid;"></td>
-                     </tr>
-                     <tr style="font-size: 8px; text-align: center;">
-                        <td></td>
-                        <td>(ФИО сотрудника)</td>
-                        <td style="width: 35px;"></td>
-                        <td>(подпись)</td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
-         </div>
+         <div class="print_cash_text_in">Приход  тг.</div>
       </div>
-      <div style="clear:both; height:20px; padding-top:30px;"></div>
-      <div class="active_cash_tbl_wrap">
-         <table class="active_cash_table">
-            <thead class="active_cash_table_head">
-               <tr>
-                  <td></td>
-                  <td>Общие данные</td>
-                  <td>Ломбард</td>
-                  <td>Комиссионный магазин</td>
-                  <td>Аксессуары</td>
-                  <td>Ремонт</td>
-               </tr>
-            </thead>
+      <div class="cash_block_out">
+         <div class="cash_text_out">Расход {{$minus}} тг.</div>
+         <div id="table_result">
+            <table class="MainTable  squashed-rows squashed-headers JColResizer" id="operations_block_right_arr" width="100%">
+               <thead>
+                  <tr>
+                     <th title="Время" style="width: 24%;">
+                        <div class="txt_node dash_none"><span>Время</span></div>
+                     </th>
+                     <th title="Действие" style="width: 25%;">
+                        <div class="txt_node dash_none"><span>Действие</span></div>
+                     </th>
+                     <th title="Описание" style="width: 25%;">
+                        <div class="txt_node dash_none"><span>Описание</span></div>
+                     </th>
+                     <th title="Сумма" style="width: 26%;">
+                        <div class="txt_node dash_none"><span>Сумма</span></div>
+                     </th>
+                  </tr>
+               </thead>
+               <tbody>
+                  @if(count($outs) == 0)
+                  <tr style="text-align:center">
+                     <td colspan="4">
+                        <div>Данные отсутствуют.</div>
+                     </td>
+                  </tr>
+                  @else
+                     @foreach($outs as $out)
+                     <tr class="operation_row">
+                        <td class="column_date">
+                           <div class="txt_node"><span><span class="cash_date_text">{{$out->created_at}}</span></span></div>
+                        </td>
+                        <td class="column_type_op">
+                           <div class="txt_node"><span>{{ $types[$out->type] }}</span></div>
+                        </td>
+                        <td class="column_good_name">
+                           <div class="txt_node"><span>{{ $out->description }}</span></div>
+                        </td>
+                        <td class="column_price">
+                           <div class="txt_node table_number_format"><span>{{ $out->sum }}</span></div>
+                        </td>
+                     </tr>
+                     @endforeach
+                  @endif
+               </tbody>
+               </tbody>
+            </table>
+         </div>
+         <div class="print_cash_text_out">Расход 0 тг.</div>
+      </div>
+      <div class="print_cash_info" style="display: none;">
+         <div id="crazy-shit0" style="clear:both; height:20px; padding-top:30px;"></div>
+         <table style="font-size: 17px;">
             <tbody>
                <tr>
-                  <td><b>Доход за смену, тг.</b></td>
-                  <td title="Включает доходы: ломбарда, комиссионного магазина, аксессуаров и ремонта, а также сумму всех приходов у которых стоит галочка 'учитывать в расчете дохода' за смену">281</td>
-                  <td>50</td>
-                  <td>0</td>
-                  <td>231</td>
-                  <td>0</td>
-               </tr>
-               <tr>
-                  <td><b>Затраты за смену, тг.</b></td>
                   <td>
-                     <span title="Суммируются все расходы за смену, у которых стоит галочка 'учитывать в расчете дохода'">
-                     0
-                     </span>
+                     <div><b style="font-size: 20px;">В кассе: 82 505 тг.</b></div>
+                     <div>В начале смены: 47 505 тг.</div>
                   </td>
-               </tr>
-               <tr>
-                  <td><b>Прибыль за смену, тг.</b></td>
-                  <td>281</td>
+                  <td>
+                     <div>Доход: 14000 тг.</div>
+                     <div>Прибыль: <b style="font-size: 19px;">14000</b> тг.</div>
+                  </td>
                </tr>
             </tbody>
          </table>
+         <div style="clear:both; height:20px; padding-top:20px;"></div>
+      </div>
+      <div class="clear_it">
+         <div>
+            <table style="width: 850px; font-weight: bold; table-layout: fixed; margin-bottom: 70px;">
+               <tbody>
+                  <tr>
+                     <td>Фактическая сумма:</td>
+                     <td style="border-bottom: 1px black solid;"></td>
+                     <td style="width: 60px;">тг.</td>
+                     <td style="border-bottom: 1px black solid;"></td>
+                     <td>тиын</td>
+                  </tr>
+                  <tr style="height: 30px;">
+                     <td colspan="5"></td>
+                  </tr>
+                  <tr>
+                     <td>Излишки:</td>
+                     <td style="border-bottom: 1px black solid;"></td>
+                     <td style="width: 60px;">тг.</td>
+                     <td style="border-bottom: 1px black solid;"></td>
+                     <td>тиын</td>
+                  </tr>
+                  <tr style="height: 30px;">
+                     <td colspan="5"></td>
+                  </tr>
+                  <tr>
+                     <td>Недостача:</td>
+                     <td style="border-bottom: 1px black solid;"></td>
+                     <td style="width: 60px;">тг.</td>
+                     <td style="border-bottom: 1px black solid;"></td>
+                     <td>тиын</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <div>
+            <table style="width: 500px; font-weight: bold; table-layout: fixed;">
+               <tbody>
+                  <tr>
+                     <td>Сдал смену:</td>
+                     <td style="border-bottom: 1px black solid;"></td>
+                     <td style="width: 35px;"></td>
+                     <td style="border-bottom: 1px black solid;"></td>
+                  </tr>
+                  <tr style="font-size: 8px; text-align: center;">
+                     <td></td>
+                     <td>(ФИО сотрудника)</td>
+                     <td style="width: 35px;"></td>
+                     <td>(подпись)</td>
+                  </tr>
+                  <tr style="height: 30px;">
+                     <td colspan="4"></td>
+                  </tr>
+                  <tr>
+                     <td>Принял смену:</td>
+                     <td style="border-bottom: 1px black solid;"></td>
+                     <td style="width: 35px;"></td>
+                     <td style="border-bottom: 1px black solid;"></td>
+                  </tr>
+                  <tr style="font-size: 8px; text-align: center;">
+                     <td></td>
+                     <td>(ФИО сотрудника)</td>
+                     <td style="width: 35px;"></td>
+                     <td>(подпись)</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
       </div>
    </div>
+   <div style="clear:both; height:20px; padding-top:30px;"></div>
+   <div class="active_cash_tbl_wrap">
+      <table class="active_cash_table">
+         <thead class="active_cash_table_head">
+            <tr>
+               <td></td>
+               <td>Общие данные</td>
+               <td>Ломбард</td>
+               <td>Комиссионный магазин</td>
+               <td>Аксессуары</td>
+               <td>Ремонт</td>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td><b>Доход за смену, тг.</b></td>
+               <td title="Включает доходы: ломбарда, комиссионного магазина, аксессуаров и ремонта, а также сумму всех приходов у которых стоит галочка 'учитывать в расчете дохода' за смену">{{$dohod}}</td>
+               <td>0</td>
+               <td>0</td>
+               <td>0</td>
+               <td>0</td>
+            </tr>
+            <tr>
+               <td><b>Затраты за смену, тг.</b></td>
+               <td>
+                  <span title="Суммируются все расходы за смену, у которых стоит галочка 'учитывать в расчете дохода'">
+                  {{$zatraty}}
+                  </span>
+               </td>
+            </tr>
+            <tr>
+               <td><b>Прибыль за смену, тг.</b></td>
+               <td>пока хз че тут выводить</td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</div>
+
+   <!-- cash div -->
    <div id="block_print_btm" class="print-cash" style="margin-bottom:40px; display: inline-block;"><a>Напечатать кассовый отчет</a></div>
    @endif
 </div>

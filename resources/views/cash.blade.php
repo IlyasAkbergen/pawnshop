@@ -60,10 +60,10 @@
                         <a href="{{route('addOperationForm')}}" class="btn btn-primary btn-xs">Провести кассовую операцию</a>
                      </div>
                      <div>
-                        <a class="cash_ops_link btn btn-primary btn-xs" href="/cash/own_needs/">Кассовые операции</a>
+                        <a class="cash_ops_link btn btn-primary btn-xs" href="{{route('cashOperations')}}">Кассовые операции</a>
                      </div>
                      <div>
-                        <a class="btn btn-primary btn-xs" href="/cash/closed_cashes/">Закрытые смены</a>
+                        <a class="btn btn-primary btn-xs" href="{{route('closedSmenas')}}">Закрытые смены</a>
                      </div>
                   </div>
                </div>

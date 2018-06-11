@@ -42,6 +42,11 @@ class OperationsController extends Controller
 		return redirect('/cash');
     }      
 
+    public function closedSmenas(){
+    	$smenas = Smena::where('lombard_id', Auth::user()->lombard_id)->where('status', 0)->get();
+    	return view('closedSmenas', compact('smenas'));
+    }
+
     public function closeSmena(){
 
     	$smena = Smena::where('user_id', Auth::user()->id)->where('status', 1)->first();

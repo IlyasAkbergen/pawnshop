@@ -16,6 +16,7 @@ class CreateOperationsTable extends Migration
             $table->increments('id');
             $table->integer('smena_id');
             $table->integer('user_id');
+            $table->integer('lombard_id');
             $table->integer('type');
             $table->integer('sum');
             $table->integer('before');

@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Smena;
 use App\Operation;
 use App\Lombard;
+use App\User;
 use Auth;
 
 class CashController extends Controller
@@ -53,5 +54,16 @@ class CashController extends Controller
 
 
     	return view('cash', compact('smenas', 'operations', 'plus', 'minus', 'bank', 'currentSmena', 'ins', 'outs', 'dohod', 'zatraty'));
+    }
+
+    public function cashOperations(){
+
+    	$employees = User::where('type', 2)->where('lombard_id', Auth::user()->lombard_id)->get();
+    	$sum = 0;
+    	$operations = Operation::where('lombard_id', Auth::user()->lombard_id)->get();
+    	foreach ($operations as $operation) {
+    		$sum = $sum + $operation->sum;
+    	}
+    	return view('cashOperations', compact('employees', 'operations', 'sum'));
     }
 }

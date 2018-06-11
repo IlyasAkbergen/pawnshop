@@ -18,7 +18,7 @@
      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="{{ URL::asset('js/bootstrap.min.js')}}"></script>
   
   
@@ -70,8 +70,8 @@
           <ul class="dropdown-menu">
             <li><a href="{{route('cashLayout')}}">Касса</a></li>
             <li><a href="{{route('addOperationForm')}}">Провести кассовую операцию</a></li>
-            <li><a href="#">Кассовые операции</a></li>
-            <li><a href="#">Закрытые смены</a></li>
+            <li><a href="{{route('cashOperations')}}">Кассовые операции</a></li>
+            <li><a href="{{route('closedSmenas')}}">Закрытые смены</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>

@@ -18,11 +18,11 @@ Route::post('klient/store', 'KlientsController@store');
 
 Route::post('Zalogs/createWordDocx', 'ZalogsController@createWordDocx');
 
-Route::get('/zalog/','UsersController@createZalog');
+Route::get('/zalog/','ZalogsController@createZalog')->name('zalogForm');
 
-Route::post('/addItem','UsersController@addItem');
+Route::post('/addItem','ZalogsController@addItem');
 
-Route::post('/addZalog','UsersController@addZalog');
+Route::post('/addZalog','ZalogsController@addZalog');
 
 Route::get('dd','UsersController@dd');
 
@@ -41,6 +41,8 @@ Route::get('/closedSmenas', 'OperationsController@closedSmenas')->name('closedSm
 Route::get('/cashOperations', 'CashController@cashOperations')->name('cashOperations');
 
 Route::get('/cash', 'CashController@show')->name('cashLayout');
+
+Route::get('/cash/{id}', 'CashController@showbyid');
 
 Route::post('/addOperation', 'OperationsController@addOperation')->name('addOperation');
 

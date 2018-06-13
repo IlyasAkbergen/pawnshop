@@ -79,7 +79,7 @@
 	        	@foreach($smenas as $smena)
 	            <tr>
 	               <td class="">
-	                  <a href="#smena_id={{$smena->id}}">{{$smena->id}}</a>
+	                  <a href="/cash/{{$smena->id}}">{{$smena->id}}</a>
 	               </td>
 	               <td class="">
 	                  {{$smena->started_at}}

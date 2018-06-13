@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('content')
+@section('style')
 <style type="text/css">
   #mobile{
     display: none;
@@ -9,23 +9,25 @@
     display: none;
   }
 </style>
+@endsection
+
+@section('content')
 <script type="text/javascript">
   $(function(){
         $('#opt_ph').change(function(){
          var choice = $('#opt_ph').val();
-          if(choice == "mobile"){
+          if(choice == "2"){
             document.querySelector('#mobile').style.display = "block";
             document.querySelector('#computer').style.display = "none";
             
-          }else if(choice =="computer"){
+          }else if(choice =="5"){
             document.querySelector('#computer').style.display = "block";
               document.querySelector('#mobile').style.display = "none";
        
           }
           else if(choice =="unknown"){
             document.querySelector('#computer').style.display = "none";
-              document.querySelector('#mobile').style.display = "none";
-       
+            document.querySelector('#mobile').style.display = "none";
           }
     })
 });
@@ -54,7 +56,7 @@
             ?>
 
             @foreach( $items as $item)
-              <i>{{ $item["name"] }}</i>
+              <i>{{ $item["title"] }}</i>
             @endforeach
 
           @else
@@ -70,6 +72,7 @@
             <p><h3>Коментарий:  <textarea style="width: 35%;" class="form-control" rows="3" id="comment" name="comment"></textarea></h3></p>
            <p></p>
            <!-- <p><input type="file" value="Загрузить документ" name="uploaded_file"></p> -->
+            <input type="hidden" name="storage" value="{{$storage}}">
            <button type="sumbit" class="btn btn-success">
             Сохранить и продолжить</button>
       </div>  
@@ -93,25 +96,24 @@
         
          
           <div class="form-group">
-                <label class="col-md-3 control-label" for="podcategory">Подкатегория</label>  
-                <div class="col-md-5">
-                <select id="opt_ph">
-                <option value="unknown">Выберите подкатегорию</option>
-                <option value="mobile">Мобильные телефоны</option>
-                <option value="computer">Компьютеры</option>
-               
-              
-              </select>
-                  
-                </div>
-              </div>
-              <br><br>
+            <label class="col-md-3 control-label" for="podcategory">Категория</label>  
+            <div class="col-md-5">
+              <?php $categories = App\Category::all(); ?>
+              <select id="opt_ph" name="category">
+                <option value="unknown">Выберите категорию</option>
+                @foreach($categories as $category)
+                <option value="{{$category->code}}">{{$category->title}}</option>
+                @endforeach
+              <select>
+            </div>
+          </div>
+          <br><br>
           <div id="mobile">
            {!! Form::open(['url' => 'addItem']) !!}
               <div class="form-group" >
-                <label class="col-md-3 control-label" for="name">Наименование</label>  
+                <label class="col-md-3 control-label" for="title">Наименование</label>  
                 <div class="col-md-5">
-                <input id="action_name" name="name" type="text" placeholder="" class="form-control input-md">
+                <input id="action_name" name="title" type="text" placeholder="" class="form-control input-md">
                   
                 </div>
               </div>
@@ -136,14 +138,13 @@
               <br><br>
 
               <div class="form-group" >
-                <label class="col-md-3 control-label" for="location">Место хранения</label>  
+                <label class="col-md-3 control-label" for="storage">Место хранения</label>  
                 <div class="col-md-5">
-                <select>
-                <option value="sklad">Склад</option>
-                <option value="seif">Сейф</option>
-                <option value="avtostoyanka">Автостоянка</option>
-                
-              </select>
+                <select name="storage">
+                  <option value="1">Склад</option>
+                  <option value="2">Сейф</option>
+                  <option value="3">Автостоянка</option>
+                </select>
                   
                 </div>
               </div>
@@ -154,7 +155,7 @@
               <div class="form-group" >
                  <label class="col-md-4 control-label" for="description">Описание:</label>
                   <div class="col-md-5">
-                <textarea class="form-control" rows="5" id="comment" class="form-control input-md" name="description"></textarea>
+                <textarea class="form-control" rows="5" id="description" class="form-control input-md" name="description"></textarea>
                 </div>
               </div>
               <br><br>
@@ -169,13 +170,12 @@
             {!! Form::close() !!} 
               </div>
               
-   <div id="computer">
-    {!! Form::open(['url' => 'addItem']) !!}
-              <div class="form-group" >
+          <div id="computer">
+          {!! Form::open(['url' => 'addItem']) !!}
+             <div class="form-group" >
                 <label class="col-md-3 control-label" for="name">Наименование</label>  
                 <div class="col-md-5">
-                <input id="action_name" name="name" type="text" placeholder="" class="form-control input-md">
-                  
+                  <input id="action_name" name="title" type="text" placeholder="" class="form-control input-md">
                 </div>
               </div>
               <br><br>
@@ -201,7 +201,7 @@
               <div class="form-group" >
                 <label class="col-md-3 control-label" for="location">Место хранения</label>  
                 <div class="col-md-5">
-                <select>
+                <select name="storage">
                 <option value="sklad">Склад</option>
                 <option value="seif">Сейф</option>
                 <option value="avtostoyanka">Автостоянка</option>
@@ -228,10 +228,10 @@
                 <textarea class="form-control" rows="5" id="comment" class="form-control input-md" name="comments"></textarea>
                 </div>
               </div>
-         <button type="sumbit">Добавить</button>   
-                {!! Form::close() !!}
+            <button type="sumbit">Добавить</button>   
+          {!! Form::close() !!}
 
-           </div>    
+          </div>    
                        
       
           </div>

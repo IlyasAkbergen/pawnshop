@@ -104,7 +104,7 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
-        <li><a href=""><b>+Добавить операцию</b></a></li>
+        <li><a href="{{route('workplace')}}"><b>+Добавить операцию</b></a></li>
       </ul>
       <form class="navbar-form navbar-left" style="padding-left: 20%;">
         <div class="form-group">

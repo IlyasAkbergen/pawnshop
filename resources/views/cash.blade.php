@@ -4,6 +4,12 @@
 
 <link rel="stylesheet" href="{{asset('css/cash.css')}}">
 
+<style >
+   td{
+      word-wrap: break-word !important;
+   }
+</style>
+
 @endsection
 
 @section('content')
@@ -47,13 +53,19 @@
          <div class="top_cash_text cf">
             <div class="top_cash_left">
                <div class="top_cash_left_values">
-                  В кассе: {{ $bank }} тг.
+                  @if($currentSmena->status == 0)
+                     В конце смены: {{ $currentSmena->after_cash }} тг.
+                  @else
+                     В кассе: {{ $bank }} тг.
+                  @endif
                   <div class="top_cash_text_onstart">В начале смены: {{$currentSmena->before_cash}} тг.</div>
                   <div class="cash_get_info_small">Открытие {{$currentSmena->started_at}}</div>
                </div>
                <div class="top_cash_left_op_cl">
                   <div class="close_cash_button">
+                     @if($currentSmena->status == 1)
                      <a id="button-close-cash" data-cash-id="472406" class="open_close_cash btn btn-primary btn-xs" href="{{route('closeSmena')}}">Закрыть смену</a>
+                     @endif
                   </div>
                   <div class="add_own_need_btn">
                      <div>
@@ -154,7 +166,7 @@
                         <td class="column_type_op">
                            <div class="txt_node"><span>{{ $types[$in->type] }}</span></div>
                         </td>
-                        <td class="column_good_name">
+                        <td class="column_good_name" style="word-wrap: break-word !important;">
                            <div class="txt_node"><span>{{ $in->description }}</span></div>
                         </td>
                         <td class="column_price">

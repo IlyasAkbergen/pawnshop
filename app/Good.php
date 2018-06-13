@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Lombard extends Model
+class Good extends Model
 {
-    
+    //
 }

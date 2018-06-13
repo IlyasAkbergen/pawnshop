@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateZalogiTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,11 @@ class CreateZalogiTable extends Migration
      */
     public function up()
     {
-        Schema::create('zalogs', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('price');
-            $table->integer('time');
-            $table->integer('klient_id');
-            $table->text('comments');
-            $table->text('items');
-            $table->timestamps();
+            $table->string('code');
+            $table->string('title');
+            $table->integer('data_level');
         });
     }
 
@@ -30,6 +27,6 @@ class CreateZalogiTable extends Migration
      */
     public function down()
     {
-        Schema::drop('zalogs');
+        Schema::drop('categories');
     }
 }

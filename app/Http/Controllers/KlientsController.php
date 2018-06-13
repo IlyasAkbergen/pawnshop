@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use DB;
+use App\Klient;
+use App\Zalog;
 
-Use App\Klient;
 class klientsController extends Controller
 {
     /**
@@ -30,12 +31,12 @@ class klientsController extends Controller
         return view('addUser');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    public function zalogs($id){
+
+        $zalogs = Zalog::where('klient_id', $id)->get();
+        return view('klient', compact('zalogs'));
+    }
+
     public function store(Request $request)
     {
          $klients = new Klient();
@@ -52,51 +53,5 @@ class klientsController extends Controller
         
          $klients->save();
          return redirect()->route('workplace')->with('message','Клиент успешно добавлен!');
-    }
-   
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

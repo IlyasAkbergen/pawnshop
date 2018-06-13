@@ -44,6 +44,8 @@ Route::get('/cash', 'CashController@show')->name('cashLayout');
 
 Route::get('/cash/{id}', 'CashController@showbyid');
 
+Route::get('/klient/{id}', 'KlientsController@zalogs');
+
 Route::post('/addOperation', 'OperationsController@addOperation')->name('addOperation');
 
 Route::get('/closeSmena', 'OperationsController@closeSmena')->name('closeSmena');

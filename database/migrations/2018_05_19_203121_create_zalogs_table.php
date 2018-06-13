@@ -20,6 +20,7 @@ class CreateZalogsTable extends Migration
             $table->text('comments');
             $table->text('items');
             $table->tinyint('storage'); // tinyint рассмотреть
+            $table->tinyint('status')->default('1');
             $table->timestamps();
         });
     }

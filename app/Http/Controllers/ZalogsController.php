@@ -8,8 +8,9 @@ use App\Http\Requests;
 
 use Session;
 use Auth;
-Use App\Zalog;
-Use App\Klient;
+use App\Zalog;
+use App\Klient;
+use App\Good;
 
 class ZalogsController extends Controller
 {
@@ -62,12 +63,28 @@ class ZalogsController extends Controller
     $zalog = new Zalog();
     $zalog->price = $request->get('summ');
     $zalog->time = $request->get('date');
-    $zalog->klient_id  = 1;
+    $zalog->klient_id  = $request->get('klient_id');
     $zalog->comments = $request->get('comment');
-    $res = serialize(Session::get('Items'));
-    $zalog->items = $res;
+    $items = serialize(Session::get('Items'));
+    $zalog->items = $items;
     $zalog->storage = $request->get('storage');
     $zalog->save();
+
+    $items_array = array();
+    $items_array = Session::get('Items');
+    foreach( $items_array as $item ){
+      $good = new Good;
+      $good->title = $item['title'];
+      $good->description = $item['description'];
+      $good->klient_id = $request->get('klient_id');
+      $good->zalog_id = $zalog->id;
+      $good->price = $item['price'];
+      $good->category = $item['category'];
+      $good->serial_number = $item['serial_number'];
+      $good->storage = $item['storage'];
+      //$good->comment = $request->comment;
+      $good->save();
+    }
     
     return view('blanks');
   }

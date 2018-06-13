@@ -30,14 +30,12 @@ class UsersController extends Controller
          
         return view('content',compact('klients'));
     }
-    public function workplaceID($id)
+    public function workplaceID($id){   
+    	 $klient = DB::table('klients')->find($id);
 
-    {   
-    	 $klients = DB::table('klients')->find($id);
-
-
-        Session::put('klient_name', $klients->name);
-        Session::put('klient_surname',$klients->surname);
+        Session::put('klient_id', $id);
+        Session::put('klient_name', $klient->name);
+        Session::put('klient_surname',$klient->surname);
 
    		  return view('contentID');
     }

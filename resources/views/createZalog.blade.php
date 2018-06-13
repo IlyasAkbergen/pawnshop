@@ -47,16 +47,17 @@
            <p><h3>Залоговое имущество:</h3></p>
            <p style="background-color: #96c7ec;
     width: 10%;"><i><b>
+          <?php $sum = 0; ?>
           @if(Session::has('Items'))
             
             <?php 
               $items = array();
               $items = Session::get('Items');
-
             ?>
 
             @foreach( $items as $item)
               <i>{{ $item["title"] }}</i>
+              <?php $sum = $sum + $item["price"]; ?>
             @endforeach
 
           @else
@@ -66,13 +67,14 @@
     <ul>
    
     </ul>
-    </b> сумма 10000тг</i></p>
+    </b>{{$sum}} Тг.</i></p>
            <p><h3>Срок займа,дней: <input type="text" name="date"></h3></p>
            <p><h3>Сумма займа:  <input type="text" name="summ"></h3></p>
             <p><h3>Коментарий:  <textarea style="width: 35%;" class="form-control" rows="3" id="comment" name="comment"></textarea></h3></p>
            <p></p>
            <!-- <p><input type="file" value="Загрузить документ" name="uploaded_file"></p> -->
             <input type="hidden" name="storage" value="{{$storage}}">
+            <input type="hidden" name="klient_id" value="{{Session::get('klient_id')}}">
            <button type="sumbit" class="btn btn-success">
             Сохранить и продолжить</button>
       </div>  
@@ -110,6 +112,19 @@
           <br><br>
           <div id="mobile">
            {!! Form::open(['url' => 'addItem']) !!}
+
+               <div class="form-group">
+                <label class="col-md-3 control-label" for="podcategory">Категория</label>  
+                <div class="col-md-5">
+                  <select id="opt_ph" name="category">
+                    <option value="unknown">Выберите категорию</option>
+                    @foreach($categories as $category)
+                    <option value="{{$category->code}}">{{$category->title}}</option>
+                    @endforeach
+                  <select>
+                </div>
+              </div>
+              <br><br>
               <div class="form-group" >
                 <label class="col-md-3 control-label" for="title">Наименование</label>  
                 <div class="col-md-5">
@@ -172,6 +187,18 @@
               
           <div id="computer">
           {!! Form::open(['url' => 'addItem']) !!}
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="podcategory">Категория</label>  
+            <div class="col-md-5">
+              <select id="opt_ph" name="category">
+                <option value="unknown">Выберите категорию</option>
+                @foreach($categories as $category)
+                <option value="{{$category->code}}">{{$category->title}}</option>
+                @endforeach
+              <select>
+            </div>
+          </div>
+          <br><br>
              <div class="form-group" >
                 <label class="col-md-3 control-label" for="name">Наименование</label>  
                 <div class="col-md-5">
@@ -202,9 +229,9 @@
                 <label class="col-md-3 control-label" for="location">Место хранения</label>  
                 <div class="col-md-5">
                 <select name="storage">
-                <option value="sklad">Склад</option>
-                <option value="seif">Сейф</option>
-                <option value="avtostoyanka">Автостоянка</option>
+                <option value="1">Склад</option>
+                <option value="2">Сейф</option>
+                <option value="3">Автостоянка</option>
                 
               </select>
                   

@@ -136,7 +136,7 @@ class ZalogsController extends Controller
     $operation->smena_id = Smena::where('user_id', Auth::user()->id)->where('status', 1)->first()->id;
     $operation->description = "vykup zaloga";
     $operation->before = $lombard->bank;
-    $lombard->bank = $lombard->bank + $request->get('sum');
+    $lombard->bank = $lombard->bank + $request->get('price');
     $lombard->save();
     $operation->after = $lombard->bank;
     $operation->save();

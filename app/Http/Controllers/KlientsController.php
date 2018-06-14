@@ -34,7 +34,8 @@ class klientsController extends Controller
     public function zalogs($id){
 
         $zalogs = Zalog::where('klient_id', $id)->get();
-        return view('klient', compact('zalogs'));
+        $klient = Klient::find($id);
+        return view('klient', compact('zalogs', 'klient'));
     }
 
     public function store(Request $request)

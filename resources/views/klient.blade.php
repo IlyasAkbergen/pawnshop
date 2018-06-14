@@ -13,12 +13,12 @@
    <span class="breadcrumb-symbol">→</span>
    <span class="breadcrumb-crumb"><a href="/clients/">Клиенты</a></span>
    <span class="breadcrumb-symbol">→</span>
-   <span class="breadcrumb-crumb">Иванов Иван Иванович</span>
+   <span class="breadcrumb-crumb">{{$klient->surname . ' ' . $klient->name . ' ' . $klient->patronymic}}</span>
 </div>
 <div id="client-component" class="wrp client-area">
    <div class="info">
-      <a class="name" href="javascript:void(0)" data-id="1">Иванов Иван Иванович</a>
-      <a class="custom-btn" href="/clients/new_operation/?client_id=1">Добавить операцию</a>
+      <a class="name" href="javascript:void(0)" data-id="1">{{$klient->surname . ' ' . $klient->name . ' ' . $klient->patronymic}}</a>
+      <a class="custom-btn" href="/workplace/{{$klient->id}}">Добавить операцию</a>
       <a class="custom-btn gray" title="Удалить клиента" href="javascript:swal('Удаление невозможно', 'Удаление клиента возможно только если у него нет ни одной совершенной операции. Если вы хотите удалить клиента то удалите сначала все совершенные с ним операции.', 'error')">✖</a>
       <div class="character-info">
          Рейтинг клиента:
@@ -149,7 +149,7 @@
          
          @foreach($zalogs as $zalog)
 
-         <div class="one-thing" data-chain-id="1" data-operation-id="7">
+         <div class="one-thing" data-chain-id="1" data-operation-id="7" data-toggle="collapse" href="#content{{$zalog->id}}">
             <div class="one-thing-hidden one-thing-head" title="Раскрыть">
                <h3>
                   Залоговый билет
@@ -218,7 +218,115 @@
                <div class="action-buttons"></div>
                <div class="expand-button"></div>
             </div>
-            <div class="one-thing-content"></div>
+            <div class="one-thing-content collapse" id="content{{$zalog->id}}" style="padding: 30px">
+               <div class="vertical-spacer"></div>
+               <div class="row">
+               <div class="col-sm-10 col-md-6 col-md-offset-3">
+                  <a class="btn btn-info">Перезалог</a>
+                  <a class="btn btn-info">Добор</a>
+                  <a class="btn btn-info">Частичный выкуп</a>
+                  <a class="btn btn-info" href="/vykup/{{$zalog->id}}">Выкуп</a>
+                  <a class="btn btn-info">Вывод из залога</a>
+               </div>
+               </div>
+               <br>
+               <div class="pawn_chain_history">
+                  <div class="head">История:</div>
+                  <table id="hron_table">
+                     <tbody>
+                        <tr>
+                           <td style="width: 200px;">Залог</td>
+                           <td style="width: 200px;">{{$zalog->created_at}}</td>
+                           <td style="width: 100px;"><span style="color:red;display:block">{{$zalog->price}} тг.</span></td>
+                           <td style="width: 150px;">{{ App\Employee::find(App\User::find(App\Smena::where('id', $zalog->smena_id)->first()->user_id)->id)->surname . ' ' . App\Employee::find(App\User::find(App\Smena::where('id', $zalog->smena_id)->first()->user_id)->id)->name }}</td>
+                           <td style="width: 150px;"></td>
+                           <td style="border-color: transparent !important; width: 50px;"><img src="{{asset('img/system_help.png')}}" class="pawn_history_message tooltip_target" title="Филиал: Qwert (Адрес не указан)
+                              Срок залога: 22 дней
+                              Тариф: Основной
+                              Юр.лицо: ООО Qwert"></td>
+                           <td style="border-color: transparent !important;"><a data-id="15" class="print_button_img blank_print_link" href="/blanks/?oid=15"><img src="/img/print_icon.png" title="Печать документов"></a></td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <p class="new-over-all">Общее количество дней в залоге: <i>0</i><br>Общая сумма оплаченных процентов: <i>0 тг.</i></p>
+               </div>
+               <a href="#" class="pawn-chainer-controller">Подробно</a>
+               <div class="pawn-chainer">
+                  <div class="vertical-spacer"></div>
+                  <table class="pawn_info_sub_table ">
+                     <colgroup>
+                        <col width="180px">
+                        <col width="98px">
+                        <col width="98px">
+                        <col width="106px">
+                        <col>
+                        <col width="205px">
+                        <col width="206px">
+                     </colgroup>
+                     <tbody>
+                        <tr class="pawn_info_row_1">
+                           <th>Серия и номер билета</th>
+                           <th>Дата займа</th>
+                           <th>Заложено до</th>
+                           <th>Срок займа</th>
+                           <th>Сумма займа</th>
+                           <th>Сумма процентов к оплате<br>(на текущий момент)</th>
+                           <th>Состояние</th>
+                        </tr>
+                        <tr class="pawn_info_row_2">
+                           <td>
+                              <a href="/clients/edit_pawn/?pawn_id=4" class="fancybox_client_pawn dashed_underline pawn_number_row_2"> АА000004</a>
+                           </td>
+                           <td>14.06.2018</td>
+                           <td>06.07.2018</td>
+                           <td>22</td>
+                           <td>12222 тг.</td>
+                           <td>50 тг.</td>
+                           <td>
+                              Открыт
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="7" style="padding: 5px 0;">
+                              <table class="pawn_goods_list_table">
+                                 <tbody>
+                                    <tr>
+                                       <th class="col1">Заложенное имущество</th>
+                                       <th class="col2">ID</th>
+                                       <th class="col2">Оценочная стоимость</th>
+                                       <th class="col2">Серийный номер</th>
+                                       <th class="col2">Состояние</th>
+                                    </tr>
+                                    <tr>
+                                       <td>
+                                          <div class="good_list_txt_node">
+                                             <a href="/clients/edit_collateral/?good_id=3&amp;id_op=15" class="fancybox_client_good dashed_underline" title="Adsad">Adsad</a>
+                                          </div>
+                                       </td>
+                                       <td>И3</td>
+                                       <td>4563.00 тг.</td>
+                                       <td>123123</td>
+                                       <td>заложен</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="7">
+                              <span class="pawn_info_color_gray">Тариф:</span> Основной<br>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="7">
+                              <span class="pawn_info_color_gray">Комментарий:</span> adfs<br>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+               <div class="vertical-spacer"></div>
+            </div>
          </div>
 
          @endforeach
@@ -365,5 +473,13 @@
       </div>
    </div>
 </div>
+
+@endsection
+
+@section('script')
+
+
+<script src="{{asset('js/zalogs.js')}}"></script>
+<script src="{{asset('js/watch.js')}}"></script>
 
 @endsection

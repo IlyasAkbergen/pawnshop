@@ -69,7 +69,7 @@
     </ul>
     </b>{{$sum}} Тг.</i></p>
            <p><h3>Срок займа,дней: <input type="text" name="date"></h3></p>
-           <p><h3>Сумма займа:  <input type="text" name="summ"></h3></p>
+           <p><h3>Сумма займа:  <input type="text" name="sum"></h3></p>
             <p><h3>Коментарий:  <textarea style="width: 35%;" class="form-control" rows="3" id="comment" name="comment"></textarea></h3></p>
            <p></p>
            <!-- <p><input type="file" value="Загрузить документ" name="uploaded_file"></p> -->

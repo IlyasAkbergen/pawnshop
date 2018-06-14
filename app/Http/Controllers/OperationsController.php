@@ -61,6 +61,7 @@ class OperationsController extends Controller
     public function openSmena(){
     	$smena = new Smena();
     	$smena->user_id = Auth::user()->id;
+    	$smena->lombard_id = Lombard::where('user_id', Auth::user()->lombard_id)->first()->id;
     	$smena->started_at = Carbon::now();
     	$smena->status = 1;
     	$smena->before_cash = Lombard::where('user_id', Auth::user()->lombard_id)->first()->bank;

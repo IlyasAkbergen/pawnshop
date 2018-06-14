@@ -17,6 +17,7 @@ class CreateZalogsTable extends Migration
             $table->integer('price');
             $table->integer('time');
             $table->integer('klient_id');
+            $table->integer('smena_id');
             $table->text('comments');
             $table->text('items');
             $table->tinyint('storage'); // tinyint рассмотреть

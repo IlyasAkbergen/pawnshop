@@ -11,6 +11,9 @@ use Auth;
 use App\Zalog;
 use App\Klient;
 use App\Good;
+use App\Smena;
+use App\Lombard;
+use App\Operation;
 
 class ZalogsController extends Controller
 {
@@ -61,7 +64,7 @@ class ZalogsController extends Controller
   
   public function addZalog(Request $request){   
     $zalog = new Zalog();
-    $zalog->price = $request->get('summ');
+    $zalog->price = $request->get('sum');
     $zalog->time = $request->get('date');
     $zalog->klient_id  = $request->get('klient_id');
     $zalog->comments = $request->get('comment');
@@ -85,6 +88,21 @@ class ZalogsController extends Controller
       //$good->comment = $request->comment;
       $good->save();
     }
+
+    $operation = new Operation();
+    $operation->type = 3;
+    
+    $lombard = Lombard::where('user_id', Auth::user()->lombard_id)->first();
+
+    $operation->user_id = Auth::user()->id;
+    $operation->sum = $request->get('sum');
+    $operation->smena_id = Smena::where('user_id', Auth::user()->id)->where('status', 1)->first()->id;
+    $operation->description = "vydacha zaloga";
+    $operation->before = $lombard->bank;
+    $lombard->bank = $lombard->bank - $request->get('sum');
+    $lombard->save();
+    $operation->after = $lombard->bank;
+    $operation->save();
     
     return view('blanks');
   }
@@ -92,5 +110,36 @@ class ZalogsController extends Controller
   public function createZalog(){
     $storage = null;   
     return view('createZalog', compact('storage'));
+  }
+
+  public function vykupForm($id){   
+    $zalog = Zalog::find($id);
+    $klient = Klient::find($zalog->klient_id);
+    return view('vykup',compact('zalog', 'klient'));
+  }
+
+  public function vykup(Request $request){
+
+    $zalog = Zalog::find($request->get('zalog_id'));
+    $zalog->status = 0;
+    $zalog->save();
+    // add operation
+
+    $operation = new Operation();
+    $operation->type = 2;
+    
+    $lombard = Lombard::where('user_id', Auth::user()->lombard_id)->first();
+
+    $operation->user_id = Auth::user()->id;
+    $operation->sum = $request->get('price');
+    $operation->smena_id = Smena::where('user_id', Auth::user()->id)->where('status', 1)->first()->id;
+    $operation->description = "vykup zaloga";
+    $operation->before = $lombard->bank;
+    $lombard->bank = $lombard->bank + $request->get('sum');
+    $lombard->save();
+    $operation->after = $lombard->bank;
+    $operation->save();
+
+    return redirect('klient/' . $request->get('klient_id'));
   }
 }

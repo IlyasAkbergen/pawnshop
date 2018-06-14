@@ -66,10 +66,4 @@ class UsersController extends Controller
 
           return view('klient',compact('klients'),compact('zalogs',$Zalogs));
     }
-    public function vykup($id){   
-         $Zalogs = DB::table('zalogs')->find($id);
-
-
-          return view('vykup',compact('Zalogs'));
-    }
 }    

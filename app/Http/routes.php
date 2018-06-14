@@ -30,7 +30,9 @@ Route::get('/klients','UsersController@klients');
 
 Route::get('/klient/{id}','UsersController@klient');
 
-Route::get('/vykup/{id}','UsersController@vykup');
+Route::get('/vykup/{id}','ZalogsController@vykupForm');
+
+Route::post('/vykupend', 'ZalogsController@vykup')->name('vykup');
 
 Route::get('/addOperationForm', function(){
 	return view('addOperationForm');

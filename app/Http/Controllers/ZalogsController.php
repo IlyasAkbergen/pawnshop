@@ -67,6 +67,7 @@ class ZalogsController extends Controller
     $zalog->price = $request->get('sum');
     $zalog->time = $request->get('date');
     $zalog->klient_id  = $request->get('klient_id');
+    $zalog->smena_id = Smena::where('user_id', Auth::user()->id)->where('status', 1)->first()->id;
     $zalog->comments = $request->get('comment');
     $items = serialize(Session::get('Items'));
     $zalog->items = $items;

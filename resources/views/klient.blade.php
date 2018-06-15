@@ -220,15 +220,17 @@
             </div>
             <div class="one-thing-content collapse" id="content{{$zalog->id}}" style="padding: 30px">
                <div class="vertical-spacer"></div>
-               <div class="row">
-               <div class="col-sm-10 col-md-6 col-md-offset-3">
-                  <a class="btn btn-info">Перезалог</a>
-                  <a class="btn btn-info">Добор</a>
-                  <a class="btn btn-info">Частичный выкуп</a>
-                  <a class="btn btn-info" href="/vykup/{{$zalog->id}}">Выкуп</a>
-                  <a class="btn btn-info">Вывод из залога</a>
-               </div>
-               </div>
+               @if($zalog->status == 1)
+                  <div class="row">
+                  <div class="col-sm-10 col-md-6 col-md-offset-3">
+                     <a class="btn btn-info">Перезалог</a>
+                     <a class="btn btn-info">Добор</a>
+                     <a class="btn btn-info">Частичный выкуп</a>
+                     <a class="btn btn-info" href="/vykup/{{$zalog->id}}">Выкуп</a>
+                     <a class="btn btn-info">Вывод из залога</a>
+                  </div>
+                  </div>
+               @endif
                <br>
                <div class="pawn_chain_history">
                   <div class="head">История:</div>
